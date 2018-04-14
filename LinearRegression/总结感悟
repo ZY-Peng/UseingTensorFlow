@@ -1,0 +1,30 @@
+用TensorFlow解决线性回归：
+1.	占位符的作用就相当于一个可以随时添加常量的变量
+
+2.	t.add(inputs,name=none)  对Inputs的求和运算
+    inputs:sum>=2,并且数量和形状相同
+    
+3.	tf.reduce_sum() 压缩求和用于降维
+  1.	tf.reduce_sum(x) 对矩阵x的所有元素求和
+  2.	tf.reduce_sum(x,0) 对矩阵x进行 行求和
+  3.	tf.reduce_sum(x,1) 对矩阵x进行 列求和
+  
+4.	optimizer:优化器
+
+5.	tf.train.GradientDescentOptimizer（rate,use_locking,name）此类是实现梯度下降算法的优化器
+       参数： 
+          learning_rate: A Tensor or a floating point value. 
+          要使用的学习率 use_locking: 要是True的话，就对于更新操作（update operations.）
+          使用锁 name: 名字，可选，默认是”GradientDescent”.
+          
+6.	tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
+       使用minimize()操作，该操作不仅可以优化更新训练的模型参数，也可以为全局步骤(global step)计数
+       
+7 zip()函数：
+   1.	当zip()函数只有一个参数时 zip(iterable)从iterable中依次取一个元组，组成一个元组
+   2.	当zip()函数有两个参数时 ◦zip(a,b)zip()函数分别从a和b依次各取出一个元素组成元组，再将依次组成的元组组合成一个新的迭代器--新的zip类型数据。
+   
+8 tf.session.run(fetches,feed_dict=None,options=None,run_metadata=None)
+   1 tf.Session.run执行fetches中的操作，计算fetches中的张量的值
+   2相关的输入变量替换 feed_dict 中的值
+   3 tf.Session.run()函数返回值为fetches的执行结果如果fetches是一个元素就返回一个值；若fetches是一个list，则返回list的值，若fetches是一个字典类型，则返回和fetches同keys的字典
